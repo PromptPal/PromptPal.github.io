@@ -1,0 +1,29 @@
+.raycast-tag {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1px 1rem;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 2;
+    border-radius: 50px;
+    --size: 3px;
+    --gradient: linear-gradient(100.41deg, #ff5b37 0.52%, #ab0052 100.52%);
+}
+
+.raycast-tag:before {
+    position: absolute;
+    inset: 0;
+    padding: var(--size);
+    content: "";
+    background: var(--gradient);
+    border-radius: inherit;
+    -webkit-mask:
+        linear-gradient(#000, #000) content-box,
+        linear-gradient(#000, #000);
+    mask:
+        linear-gradient(#000, #000) content-box,
+        linear-gradient(#000, #000);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+}
