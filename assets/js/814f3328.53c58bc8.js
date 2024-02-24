@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkPromptPal_github_io=self.webpackChunkPromptPal_github_io||[]).push([[472],{5513:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"PromptPal 1.6","permalink":"/blog/promptPal-1-6","unlisted":false},{"title":"Introduce the PromptPal","permalink":"/blog/introduce","unlisted":false}]}')}}]);
