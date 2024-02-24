@@ -5,8 +5,57 @@ authors: [annatarhe]
 tags: [release, introduce]
 ---
 
-# Introduce
+## Introducing PromptPal
 
-Introduce the PromptPal - a Prompt Manager that focuses on On-Premise and developer experience.
+**PromptPal is a prompt manager designed for on-premise environments, focusing on improving the developer experience when working with Large Language Models (LLMs).**
 
-TODO: ....
+## Why You Need a Prompt Manager
+
+We know you're **eager to build** with AI, but as you start developing new features, managing your prompts can become **challenging**. Having them scattered throughout your codebase makes them difficult to **reuse, maintain, and share** with colleagues.
+
+Implementing a simple `PromptService` might seem inadequate, lacking proper organization for **efficient management**. Additionally, deploying, debugging, A/B testing, and monitoring prompt performance can be **time-consuming and tedious**.
+
+These challenges can lead to wasted time and decreased productivity. PromptPal aims to solve these issues and **streamline your LLM development workflow**.
+
+## PromptPal Features
+
+PromptPal is a web service with **rich tools** to help developers work with LLMs.
+
+Of course, it can manage prompts, with tracing and debugging capabilities. But PromptPal offers more at a **low cost**:
+
+### On-Premise Deployment
+
+It works perfectly in an on-premise environment and is **easy to set up**.
+
+The only thing you need to set up PromptPal is a single `.env` configuration file and a one-line command:
+
+```bash
+podman run -d --rm --network host -v '/promptpal/.env:/usr/app/.env:ro' annatarhe/prompt-pal:v1.6.0
+```
+
+### Low Costs
+
+Its lightweight architecture guarantees efficient resource utilization, ensuring **optimal performance**. And all this functionality requires only **12.3MB of memory**[^1]!
+
+### Developer Experience
+
+We are developers too, so **developer experience matters**.
+
+We provide a CLI: [https://github.com/PromptPal/cli](https://github.com/PromptPal/cli) to help developers set up integration with PromptPal. With this CLI, you can set up a configuration file in your project and generate type declarations in **just one line of code**:
+
+```bash
+promptpal init ## init project with config
+promptpal g ## generate types by config
+```
+
+We also offer node.js: [https://github.com/PromptPal/node-sdk](https://github.com/PromptPal/node-sdk) and golang: [https://github.com/PromptPal/go-sdk](https://github.com/PromptPal/go-sdk) SDKs.
+
+## Conclusion
+
+PromptPal could help you **finish work earlier**, giving you time for your hobbies, like swimming or spending time with loved ones.
+
+**Run it right now!**
+
+**Please note that PromptPal is still under **heavy development**.**
+
+[^1]: For testing purposes, the 12.3MB was only evaluated on an M1 Pro MacBook during startup. Readers should be aware that performance may vary across different hardware configurations and operating conditions.
