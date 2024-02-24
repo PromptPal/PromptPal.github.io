@@ -15,11 +15,28 @@
             <pubDate>Sat, 24 Feb 2024 00:00:00 GMT</pubDate>
             <description><![CDATA[<ReleaseHero]]></description>
             <content:encoded><![CDATA[<div class="container_pLOk"><img src="https://promptpal.github.io/assets/images/logo-6a9d31d05fe1069d8c397ca17a9a393c.png" alt="promptpal logo" class="logo_HRaL"><div><h2 class="version_xk68">PromptPal <!-- -->1.6</h2><ul class="features_AgtB"><li class="raycast-tag feature_cEYN featureText_il9a">Gemini support</li><li class="raycast-tag feature_cEYN featureText_il9a">New UI</li></ul></div></div>
-<p>including so many features:</p>
+<p>We're excited to announce the release of PromptPal v1.6, bringing some fantastic updates to your favorite AI project!</p>
+<p>This release focuses on two key areas:</p>
+<ol>
+<li>Gemini Support:</li>
+</ol>
+<p>OpenAI not longly anymore. We offically support Google Gemini. in this release you be able to use gemini for your project.</p>
+<ol start="2">
+<li>User Interface Revamp:</li>
+</ol>
+<p>We've completely revamped the User Interface (UI) for a more intuitive and user-friendly experience.
+Enjoy a streamlined layout, improved navigation, and features optimized for various screen sizes.</p>
+<p>Additional highlights:</p>
 <ul>
-<li>Gemini support</li>
-<li>New UI</li>
-</ul>]]></content:encoded>
+<li>Enhanced Dark Mode: Experience improved dark mode support for a comfortable writing environment.</li>
+<li>Bug Fixes: We've addressed various bugs to ensure a smoother user experience.</li>
+<li>Improved Toast Experience: Our toast notifications now offer a clearer and more informative reading experience.</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_an0H" id="upgrade-now">Upgrade now:<a href="https://promptpal.github.io/blog/promptPal-1-6#upgrade-now" class="hash-link" aria-label="Direct link to Upgrade now:" title="Direct link to Upgrade now:">​</a></h2>
+<p>To experience the new features and enhancements in PromptPal v1.6, you can upgrade by a simple command:</p>
+<div class="language-bash codeBlockContainer_TrXU theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_oDlV"><pre tabindex="0" class="prism-code language-bash codeBlock_vqyv thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_w6yq"><span class="token-line" style="color:#393A34"><span class="token plain">podman run -d --rm --network host -v '/promptpal/.env:/usr/app/.env:ro' annatarhe/prompt-pal:v1.6.0</span><br></span></code></pre><div class="buttonGroup_h4Ab"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_DAVD" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_WHRT"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_N87f"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>if you are a new user, please checkout <a href="https://github.com/PromptPal/PromptPal?tab=readme-ov-file#installation" target="_blank" rel="noopener noreferrer">the documention</a> and setup your <code>.env</code></p>
+<p>Thank you for choosing PromptPal!</p>]]></content:encoded>
             <category>release</category>
         </item>
         <item>
