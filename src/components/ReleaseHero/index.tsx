@@ -13,7 +13,7 @@ function ReleaseHero(props: RelaseHeroProps) {
     <div className={styles.container}>
       <img src={logo} alt="promptpal logo" className={styles.logo} />
       <div>
-        <h2 className={styles.version}>Release {version}</h2>
+        <h2 className={styles.version}>PromptPal {version}</h2>
         <ul className={styles.features}>
           {features.map((x) => (
             <li
