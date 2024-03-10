@@ -2,11 +2,63 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://PromptPal.github.io/blog</id>
     <title>PromptPal Blog</title>
-    <updated>2024-02-24T00:00:00.000Z</updated>
+    <updated>2024-03-10T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://PromptPal.github.io/blog"/>
     <subtitle>PromptPal Blog</subtitle>
     <icon>https://PromptPal.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[PromptPal 1.7 - SSO, Tracking and bugfixes]]></title>
+        <id>https://PromptPal.github.io/blog/promptPal-1-7</id>
+        <link href="https://PromptPal.github.io/blog/promptPal-1-7"/>
+        <updated>2024-03-10T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<ReleaseHero]]></summary>
+        <content type="html"><![CDATA[<div class="container_pLOk"><img src="https://promptpal.github.io/assets/images/logo-6a9d31d05fe1069d8c397ca17a9a393c.png" alt="promptpal logo" class="logo_HRaL"><div><h2 class="version_xk68">PromptPal <!-- -->1.7</h2><ul class="features_AgtB"><li class="raycast-tag feature_cEYN featureText_il9a">Single Sign-On</li><li class="raycast-tag feature_cEYN featureText_il9a">Prompt Tracking</li><li class="raycast-tag feature_cEYN featureText_il9a">More improvements and bugfixes</li></ul></div></div>
+<h2 class="anchor anchorWithStickyNavbar_an0H" id="promptpal-17-single-sign-on-improved-tracking-and-bug-fixes">PromptPal 1.7: Single Sign-On, Improved Tracking, and Bug Fixes<a href="https://promptpal.github.io/blog/promptPal-1-7#promptpal-17-single-sign-on-improved-tracking-and-bug-fixes" class="hash-link" aria-label="Direct link to PromptPal 1.7: Single Sign-On, Improved Tracking, and Bug Fixes" title="Direct link to PromptPal 1.7: Single Sign-On, Improved Tracking, and Bug Fixes">​</a></h2>
+<p>We're excited to announce the release of PromptPal 1.7! This update introduces several new features and improvements.</p>
+<h3 class="anchor anchorWithStickyNavbar_an0H" id="single-sign-on-sso-with-google-login">Single Sign-On (SSO) with Google Login<a href="https://promptpal.github.io/blog/promptPal-1-7#single-sign-on-sso-with-google-login" class="hash-link" aria-label="Direct link to Single Sign-On (SSO) with Google Login" title="Direct link to Single Sign-On (SSO) with Google Login">​</a></h3>
+<p>PromptPal now supports seamless integration with Google Login. You can easily enable Google Login by configuring your <code>.env</code> file. Simply follow these steps:</p>
+<ol>
+<li>Visit the Google Cloud Console: <a href="https://console.cloud.google.com/apis/credentials" target="_blank" rel="noopener noreferrer">https://console.cloud.google.com/apis/credentials</a> to create an OAuth 2.0 client and set up a callback URL.</li>
+<li>Update your PromptPal <code>.env</code> file with the following details:</li>
+</ol>
+<div class="language-yaml codeBlockContainer_TrXU theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_oDlV"><pre tabindex="0" class="prism-code language-yaml codeBlock_vqyv thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_w6yq"><span class="token-line" style="color:#393A34"><span class="token plain">SSO_GOOGLE_CALLBACK_URL="http</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">//localhost</span><span class="token punctuation" style="color:#393A34">:</span><span class="token plain">7788/auth/google"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SSO_GOOGLE_CLIENT_ID="YOUR_CLIENT_ID"</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">SSO_GOOGLE_CLIENT_SECRET="YOUR_CLIENT_SECRET"</span><br></span></code></pre><div class="buttonGroup_h4Ab"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_DAVD" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_WHRT"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_N87f"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p><strong>Important Note:</strong> You can only modify the host portion of the callback URL (<code>http://localhost:7788</code> in this example). The path (<code>/auth/google</code>) must remain unchanged.</p>
+<p>Once configured, a "Google Login" button will appear on your login page.</p>
+<h3 class="anchor anchorWithStickyNavbar_an0H" id="enhanced-prompt-tracking">Enhanced Prompt Tracking<a href="https://promptpal.github.io/blog/promptPal-1-7#enhanced-prompt-tracking" class="hash-link" aria-label="Direct link to Enhanced Prompt Tracking" title="Direct link to Enhanced Prompt Tracking">​</a></h3>
+<p>The latest version of PromptPal provides deeper insights into how prompts are being used within your project. You can now view:</p>
+<ul>
+<li>The number of times each prompt has been called in the last 7 days.</li>
+<li>The P50, P90, and P99 response times for each prompt.</li>
+</ul>
+<p><img decoding="async" loading="lazy" alt="p90-example" src="https://promptpal.github.io/assets/images/prompt-p90-1018e4cfa95bd51d20f9fee1569ae89a.jpeg" width="3136" height="2260" class="img__qBJ"></p>
+<h3 class="anchor anchorWithStickyNavbar_an0H" id="improvements-and-bug-fixes">Improvements and Bug Fixes<a href="https://promptpal.github.io/blog/promptPal-1-7#improvements-and-bug-fixes" class="hash-link" aria-label="Direct link to Improvements and Bug Fixes" title="Direct link to Improvements and Bug Fixes">​</a></h3>
+<p>For a detailed list of improvements and bug fixes, please refer to the full changelog: Release 1.7 Changelog: <a href="https://github.com/PromptPal/PromptPal/releases/tag/v1.7.0" target="_blank" rel="noopener noreferrer">https://github.com/PromptPal/PromptPal/releases/tag/v1.7.0</a>.</p>
+<h2 class="anchor anchorWithStickyNavbar_an0H" id="important-updates-regarding-database-support">Important Updates Regarding Database Support<a href="https://promptpal.github.io/blog/promptPal-1-7#important-updates-regarding-database-support" class="hash-link" aria-label="Direct link to Important Updates Regarding Database Support" title="Direct link to Important Updates Regarding Database Support">​</a></h2>
+<p>We've made the difficult decision to discontinue support for SQLite in PromptPal 1.7. Here's why:</p>
+<ol>
+<li><strong>Reduced Bundle Size:</strong> We prioritize keeping the bundle size small, especially for users in regions with limited internet bandwidth. Removing SQLite support significantly reduces the overall size of the package (by approximately 83%).</li>
+<li><strong>cgo Limitations:</strong> SQLite relies on cgo, which can introduce challenges in certain environments. You can learn more about these limitations in this article: cgo is not Go: <a href="https://dave.cheney.net/2016/01/18/cgo-is-not-go" target="_blank" rel="noopener noreferrer">https://dave.cheney.net/2016/01/18/cgo-is-not-go</a>.</li>
+<li><strong>Limited Functionality:</strong> SQLite offers a restricted set of aggregate functions, hindering our ability to develop certain features.</li>
+</ol>
+<p>We recommend migrating your data to PostgreSQL, our officially supported database.</p>
+<h2 class="anchor anchorWithStickyNavbar_an0H" id="upgrading-to-promptpal-17">Upgrading to PromptPal 1.7<a href="https://promptpal.github.io/blog/promptPal-1-7#upgrading-to-promptpal-17" class="hash-link" aria-label="Direct link to Upgrading to PromptPal 1.7" title="Direct link to Upgrading to PromptPal 1.7">​</a></h2>
+<p>Upgrading is a simple process:</p>
+<ol>
+<li>Update the image version:</li>
+</ol>
+<div class="language-bash codeBlockContainer_TrXU theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_oDlV"><pre tabindex="0" class="prism-code language-bash codeBlock_vqyv thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_w6yq"><span class="token-line" style="color:#393A34"><span class="token plain">docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:v1.7.0</span><br></span></code></pre><div class="buttonGroup_h4Ab"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_DAVD" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_WHRT"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_N87f"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<ol start="2">
+<li>If you intend to use Google Login, update your <code>.env</code> file accordingly before starting the server.</li>
+<li>Users who were previously using SQLite will need to migrate their data to a different database (such as PostgreSQL).</li>
+</ol>
+<p>We appreciate your understanding and patience. We're confident that these changes will enhance the overall performance and functionality of PromptPal. We look forward to your continued use and feedback!</p>]]></content>
+        <author>
+            <name>AnnatarHe</name>
+            <uri>https://github.com/AnnatarHe</uri>
+        </author>
+        <category label="release" term="release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PromptPal 1.6 - Gemini Support and UI Revamp!]]></title>
         <id>https://PromptPal.github.io/blog/promptPal-1-6</id>
