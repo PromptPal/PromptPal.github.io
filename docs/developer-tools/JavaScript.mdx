@@ -1,0 +1,26 @@
+---
+sidebar_position: 2
+---
+
+[https://jsr.io/@prompt-pal/node-sdk](https://jsr.io/@prompt-pal/node-sdk)
+
+this JS library is compatible with any JS runtime. including `NodeJS`, `Deno`, `React Native` and even browsers
+
+## Example
+
+please make sure you already have `endpoint` and `token` in `promptpal.yaml`
+
+```ts
+import PromptPal from "@prompt-pal/node-sdk";
+
+const client = new PromptPal(endpoint, token);
+
+const res = await client.execute<PPPrompts, PPPromptEchoVariables>(
+  PPPrompts.Echo,
+  {
+    text: "hello world",
+  }
+);
+
+console.log(res);
+```

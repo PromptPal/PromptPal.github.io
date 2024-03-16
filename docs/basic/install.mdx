@@ -2,4 +2,44 @@
 sidebar_position: 1
 ---
 
-# WIP
+# Install
+
+## Basic
+
+Basically, PromptPal need a Docker image to run and a configuration file. that all. follow the basic knowledge. you can deploy it by yourself and every where.
+
+```bash
+docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:v1.7.3
+```
+
+please be remind the `v1.7.3` may not be the latest version, please update it to latest version.
+
+and as you may seen. we also need a config file. like this:
+
+```bash
+JWT_TOKEN_KEY="A_RANDOM_KEY_HERE"
+HASHID_SALT="A_RANDOM_SALT_HERE"
+PUBLIC_DOMAIN="0.0.0.0:7788"
+# uncomment and change next 2 lines for postgres
+DB_TYPE="postgres"
+DB_DSN="host=localhost user=postgres password=PASSWORD port=5432 dbname=promptpal sslmode=disable"
+
+# uncomment and change next 2 lines for mysql
+# DB_TYPE="mysql"
+# DB_DSN="root:pass@tcp(localhost:3306)/promptpal"
+
+# your public address here(from metamask.)
+ADMIN_LIST=0x4910c609fBC895434a0A5E3E46B1Eb4b64Cff2B8,0x7E63d899676756711d29DD989bb9F5a868C20e1D
+OPENAI_BASE_URL="https://api.openai.com/v1"
+
+## Optional. SSO with Google if you want.
+SSO_GOOGLE_CALLBACK_URL="http://localhost:7788/auth/google"
+SSO_GOOGLE_CLIENT_ID="YOUR_CLIENT_ID"
+SSO_GOOGLE_CLIENT_SECRET="YOUR_CLIENT_SECRET"
+```
+
+that's all you need.
+
+once the server is running, you can start using it. on `localhost:7788`
+
+and you can use it behind reverse proxy. like nginx
