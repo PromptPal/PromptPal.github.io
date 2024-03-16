@@ -1,0 +1,36 @@
+---
+sidebar_position: 2
+---
+
+[Go SDK](https://github.com/PromptPal/go-sdk)
+
+## Example
+
+```go
+import (
+	"github.com/PromptPal/go-sdk/promptpal"
+)
+
+func TestExample(t *testing.T) {
+	ctx := context.Background()
+	// create a client
+	c := promptpal.NewPromptPalClient(endpoint, token)
+	// call the `Execute` function
+	res, err := c.Execute(
+		ctx,
+		string(PPPromptEcho),
+		PPPromptEchoVariables{
+			Text: "hello world",
+		},
+		nil,
+	)
+
+	if err != nil {
+		t.Error(err)
+	}
+
+	if res != "hello world" {
+		t.Error(res)
+	}
+}
+```
