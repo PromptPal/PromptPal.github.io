@@ -1,7 +1,6 @@
 import styles from "./styles.module.css";
 import clsx from "clsx";
 import logo from "@site/static/img/logo.png";
-console.log("logo", logo);
 
 type RelaseHeroProps = {
   version: string;
