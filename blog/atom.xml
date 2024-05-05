@@ -2,11 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://PromptPal.github.io/blog</id>
     <title>PromptPal Blog</title>
-    <updated>2024-03-10T00:00:00.000Z</updated>
+    <updated>2024-05-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://PromptPal.github.io/blog"/>
     <subtitle>PromptPal Blog</subtitle>
     <icon>https://PromptPal.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[PromptPal 1.8 - Versions]]></title>
+        <id>https://PromptPal.github.io/blog/promptPal-1-8</id>
+        <link href="https://PromptPal.github.io/blog/promptPal-1-8"/>
+        <updated>2024-05-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We are thrilled to unveil the latest version of PromptPal - version 1.8! This release brings forth a plethora of new features and enhancements aimed at simplifying the debug process for developers.]]></summary>
+        <content type="html"><![CDATA[<div class="container_pLOk"><img src="https://promptpal.github.io/assets/images/logo-6a9d31d05fe1069d8c397ca17a9a393c.png" alt="promptpal logo" class="logo_HRaL"><div><h2 class="version_xk68">PromptPal <!-- -->1.8</h2><ul class="features_AgtB"><li class="raycast-tag feature_cEYN featureText_il9a">Versions</li></ul></div></div>
+<p>We are thrilled to unveil the latest version of PromptPal - version 1.8! This release brings forth a plethora of new features and enhancements aimed at simplifying the debug process for developers.</p>
+<h2 class="anchor anchorWithStickyNavbar_BmoB" id="version-control-made-easy">Version Control Made Easy<a href="https://promptpal.github.io/blog/promptPal-1-8#version-control-made-easy" class="hash-link" aria-label="Direct link to Version Control Made Easy" title="Direct link to Version Control Made Easy">​</a></h2>
+<p>One of the key highlights of PromptPal 1.8 is the introduction of versioning support. With this new feature, you can now easily track and manage all the changes made within a prompt. This not only enhances transparency but also provides a streamlined approach to monitoring alterations.</p>
+<p>Check out the example below:</p>
+<p><img decoding="async" loading="lazy" alt="PromptPal Version Control" src="https://promptpal.github.io/assets/images/prompt-1-8-versions-afba440e58f03912a4077dc731286111.jpeg" width="1850" height="1578" class="img_NW00"></p>
+<h2 class="anchor anchorWithStickyNavbar_BmoB" id="how-to-upgrade">How to Upgrade<a href="https://promptpal.github.io/blog/promptPal-1-8#how-to-upgrade" class="hash-link" aria-label="Direct link to How to Upgrade" title="Direct link to How to Upgrade">​</a></h2>
+<p>To leverage all the new capabilities and improvements of PromptPal 1.8, simply execute the following command to upgrade to the latest version:</p>
+<div class="language-bash codeBlockContainer_tuEQ theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_Gxqq"><pre tabindex="0" class="prism-code language-bash codeBlock_iaSh thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_HMQZ"><span class="token-line" style="color:#393A34"><span class="token plain">docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:v1.8.0</span><br></span></code></pre><div class="buttonGroup_kXv1"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_wczT" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_llu0"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_g4QM"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>That's it! Stay tuned for more exciting features in the pipeline. We hope you find PromptPal 1.8 as beneficial and efficient as we intended it to be. Happy integrating!</p>]]></content>
+        <author>
+            <name>AnnatarHe</name>
+            <uri>https://github.com/AnnatarHe</uri>
+        </author>
+        <category label="release" term="release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PromptPal 1.7 - SSO, Tracking and bugfixes]]></title>
         <id>https://PromptPal.github.io/blog/promptPal-1-7</id>
