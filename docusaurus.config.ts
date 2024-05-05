@@ -94,10 +94,10 @@ const config: Config = {
         {
           title: "Community",
           items: [
-            // {
-            //   label: "Twitter",
-            //   href: "https://twitter.com/docusaurus",
-            // },
+            {
+              label: "Twitter(X)",
+              href: "https://twitter.com/prompt_pal",
+            },
           ],
         },
         {
