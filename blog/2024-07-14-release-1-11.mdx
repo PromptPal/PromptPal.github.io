@@ -7,7 +7,7 @@ tags: [release]
 
 import ReleaseHero from "@site/src/components/ReleaseHero";
 
-<ReleaseHero version="1.8" features={["Streaming", "Types"]} />
+<ReleaseHero version="1.11" features={["Streaming", "Types"]} />
 
 # Introducing PromptPal 1.11 - Now with Streaming API and Multiple Types (Experimental) Support
 
@@ -33,29 +33,29 @@ expect(res).toBeTruthy();
 ```
 
 ```go
-	ctx := context.Background()
-	// create a client
-	oneMinute := 1 * time.Minute
-	c := promptpal.NewPromptPalClient(endpoint, token, promptpal.PromptPalClientOptions{
-		Timeout: &oneMinute,
-	})
-	// call the `Execute` function
-	_, err := c.ExecuteStream(
-		ctx,
-		string(PPPromptEcho),
-		PPPromptEchoVariables{
-			Text: "hello world",
-		},
-		nil,
-		func(data *promptpal.APIRunPromptResponse) error {
-			fmt.Println(data.ResponseMessage)
-			return nil
-		},
-	)
+ctx := context.Background()
+// create a client
+oneMinute := 1 * time.Minute
+c := promptpal.NewPromptPalClient(endpoint, token, promptpal.PromptPalClientOptions{
+	Timeout: &oneMinute,
+})
+// call the `ExecuteStream` function
+_, err := c.ExecuteStream(
+	ctx,
+	string(PPPromptEcho),
+	PPPromptEchoVariables{
+		Text: "hello world",
+	},
+	nil,
+	func(data *promptpal.APIRunPromptResponse) error {
+		fmt.Println(data.ResponseMessage)
+		return nil
+	},
+)
 
-	if err != nil {
-		t.Error(err)
-	}
+if err != nil {
+	t.Error(err)
+}
 ```
 
 ## How to Upgrade
