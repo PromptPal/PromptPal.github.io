@@ -1,0 +1,69 @@
+---
+slug: promptPal-1-11
+title: PromptPal 1.11 - Streaming, Types
+authors: [annatarhe]
+tags: [release]
+---
+
+import ReleaseHero from "@site/src/components/ReleaseHero";
+
+<ReleaseHero version="1.8" features={["Streaming", "Types"]} />
+
+# Introducing PromptPal 1.11 - Now with Streaming API and Multiple Types (Experimental) Support
+
+In the latest 1.11 version, we are excited to announce the release of the Streaming API.
+
+with the latest [JavaScript SDK](https://jsr.io/@prompt-pal/node-sdk) and [Golang SDK](https://github.com/PromptPal/go-sdk) you can now use the streaming API to get responses faster than ever before.
+
+```ts
+const c = new PromptPalClient("http://127.0.0.1:7788", "token")
+const onData = console.log
+const onEnd = vi.fn()
+const res = await c.executeStream(
+	"PROMPT_ID",
+	{ text: "hello world" },
+	"123",
+	{
+		onData,
+		onEnd,
+	},
+)
+
+expect(res).toBeTruthy();
+```
+
+```go
+	ctx := context.Background()
+	// create a client
+	oneMinute := 1 * time.Minute
+	c := promptpal.NewPromptPalClient(endpoint, token, promptpal.PromptPalClientOptions{
+		Timeout: &oneMinute,
+	})
+	// call the `Execute` function
+	_, err := c.ExecuteStream(
+		ctx,
+		string(PPPromptEcho),
+		PPPromptEchoVariables{
+			Text: "hello world",
+		},
+		nil,
+		func(data *promptpal.APIRunPromptResponse) error {
+			fmt.Println(data.ResponseMessage)
+			return nil
+		},
+	)
+
+	if err != nil {
+		t.Error(err)
+	}
+```
+
+## How to Upgrade
+
+To use the latest version, simply run the following command to upgrade:
+
+```bash
+docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:latest
+```
+
+That's it! Thank you for your attention, and stay tuned for more features soon!
