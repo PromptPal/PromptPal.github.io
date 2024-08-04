@@ -2,11 +2,31 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://PromptPal.github.io/blog</id>
     <title>PromptPal Blog</title>
-    <updated>2024-07-14T00:00:00.000Z</updated>
+    <updated>2024-08-04T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://PromptPal.github.io/blog"/>
     <subtitle>PromptPal Blog</subtitle>
     <icon>https://PromptPal.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[PromptPal 1.12 + 1.13 - Advanced API Security and IP Tracking]]></title>
+        <id>https://PromptPal.github.io/blog/promptPal-1-13</id>
+        <link href="https://PromptPal.github.io/blog/promptPal-1-13"/>
+        <updated>2024-08-04T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[If you've used any LLM API, you've probably noticed that they typically provide a static secret token for backend use. But what about the client side?]]></summary>
+        <content type="html"><![CDATA[<div class="container_pLOk"><img src="https://promptpal.github.io/assets/images/logo-6a9d31d05fe1069d8c397ca17a9a393c.png" alt="promptpal logo" class="logo_HRaL"><div><h2 class="version_xk68">PromptPal <!-- -->1.12 + 1.13</h2><ul class="features_AgtB"><li class="raycast-tag feature_cEYN featureText_il9a">API Security</li><li class="raycast-tag feature_cEYN featureText_il9a">IP Tracking</li></ul></div></div>
+<p>If you've used any LLM API, you've probably noticed that they typically provide a static secret token for backend use. But what about the client side?</p>
+<p>PromptPal has addressed this issue by designing a workflow that allows secure client-side prompt execution.</p>
+<p>For more information, please read our <a href="https://promptpal.github.io/docs/developer-tools/Advanced%20API%20Security" target="_blank" rel="noopener noreferrer">Advanced API Security</a> documentation.</p>
+<h1>Introducing PromptPal 1.13 - IP Tracking</h1>
+<p>We have enhanced our prompt tracking feature by adding an IP field, making it easier for users to identify traffic sources.</p>
+<p>The page has become more complex than before, so we are working on designing a more powerful and user-friendly interface to display this data. Please stay tuned!</p>
+<p><strong>PS:</strong> The maintainer will be on a long vacation and may not be able to code for a month. If you have any good ideas, please email me at <a href="mailto:annatar.he+pp@gmail.com" target="_blank" rel="noopener noreferrer">annatar.he+pp@gmail.com</a>. I'll consider adding more features after my vacation!</p>]]></content>
+        <author>
+            <name>AnnatarHe</name>
+            <uri>https://github.com/AnnatarHe</uri>
+        </author>
+        <category label="release" term="release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PromptPal 1.11 - Streaming, Types]]></title>
         <id>https://PromptPal.github.io/blog/promptPal-1-11</id>
