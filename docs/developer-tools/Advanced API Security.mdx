@@ -2,16 +2,15 @@
 sidebar_position: 2
 ---
 
-:::warning
+:::info
 
-this feature is still in heavy development, please wait for next release.
+This feature was released in version 1.12.
 
 :::
 
+Ensuring the security of the API is vital for PromptPal. We designed a workflow to allow you to safely use JavaScript and Golang SDK clients on the client side.
 
-The security of the API is vital for PromptPal. So, we designed a workflow to let you use JavaScript and Golang SDK clients safely on the client side.
-
-Basically, your server provides 2 APIs: one that grants a temporary token and a validation API to check if the token is valid.
+In essence, your server provides two APIs: one to grant a temporary token and another to validate the token.
 
 ```mermaid
 sequenceDiagram
@@ -33,15 +32,17 @@ sequenceDiagram
 
 # Integration
 
-If you want to use this advanced security feature, ~~you may (not) need to subscribe to the business plan (for now)~~ and then enable this feature on every Open Token.
+To use this advanced security feature, you ~~may (not) need to subscribe to the business plan (for now)~~ and enable this feature for each Open Token.
 
-~~TODO: ADD AN IMAGE HERE~~
+![Create an Open Token](../assets/open-token-with-security.png)
 
-After that, you need to implement 2 APIs: `POST /api/v1/token` and `POST /api/v1/validate`. The first API can be freely changed as you want because it can be defined in the SDK. The SDK will use the method to get a valid token if it does not exist.
+Next, implement two APIs: `POST /api/v1/token` and `POST /api/v1/validate`. The first API can be customized as needed because it is defined in the SDK. The SDK will use this method to obtain a valid token if one does not exist.
 
-It looks like this in the JS SDK:
+Here's how it looks in the JS SDK:
 
 ```ts
+// Add the package to your client with:
+// `pnpm dlx jsr add @prompt-pal/node-sdk`
 import PromptPal from '@prompt-pal/node-sdk'
 
 const client = new PromptPal(endpoint, token, {
@@ -53,15 +54,16 @@ const client = new PromptPal(endpoint, token, {
 })
 ```
 
-The second API method is hardcoded. You can change the path in the OpenAPI Token page. An example is above.
+The second API method is hardcoded, but you can change the path on the OpenAPI Token page. An example is shown above.
 
 You also need to expose an API for PromptPal to validate the token.
 
 ## POST /api/v1/validate
 
 ```ts
-type Payload = {
-    token: string
+type Headers = {
+    'user-agent': string
+    'authorization': string
 }
 ```
 
@@ -74,6 +76,29 @@ type Response = {
 
 If the response status is not 200, PromptPal will throw an Unauthorized error to the SDK, and the SDK will call the method to apply for another token.
 
-If the response replies with an OK status, it will continue to the next steps.
+Here is an example of a validation server:
 
-With this advanced security feature, you can safely call prompts on the client side. Hope you like it!
+```ts
+Deno.serve({ port: 8080 }, (req) => {
+  // ua === `PromptPal@{{COMMIT_ID}}`
+  const ua = req.headers.get("user-agent")
+  // YOUR TOKEN HERE
+  const token = req.headers.get("authorization")
+
+  const body = {
+    limit: 100,
+    remaining: token === "Bearer hello-from-temp-token" ? 100 : 0,
+  }
+  return new Response(JSON.stringify(body), {
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+})
+```
+
+If the response returns an OK status and the `remaining` field is more than 1, the process will continue to the next steps.
+
+With this advanced security feature, you can safely call prompts on the client side. We hope you find it useful!
+
+If you have any questions, don't hesitate to ask: annatar.he+pp@gmail.com
