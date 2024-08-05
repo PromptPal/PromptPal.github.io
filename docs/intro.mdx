@@ -51,7 +51,7 @@ These instructions will guide you through the process of setting up PromptPal on
 - Run Docker Image: Use Docker to run the PromptPal image. Execute the following command, replacing \{PUBLIC_ADDRESS\} with your Metamask wallet's public address:
 
 ```bash
-docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:master
+docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:latest
 ```
 
 the .env file should be like this:
@@ -61,16 +61,12 @@ JWT_TOKEN_KEY="A_RANDOM_KEY_HERE"
 HASHID_SALT="A_RANDOM_SALT_HERE"
 PUBLIC_DOMAIN="0.0.0.0:7788"
 # uncomment and change next 2 lines for postgres
-# DB_TYPE="postgres"
-# DB_DSN="host=localhost user=postgres password=PASSWORD port=5432 dbname=promptpal sslmode=disable"
+DB_TYPE="postgres"
+DB_DSN="host=localhost user=postgres password=PASSWORD port=5432 dbname=promptpal sslmode=disable"
 
 # uncomment and change next 2 lines for mysql
 # DB_TYPE="mysql"
 # DB_DSN="root:pass@tcp(localhost:3306)/promptpal"
-
-# only for sqlite3
-DB_TYPE="sqlite3"
-DB_DSN="file:./db.db?cache=shared&_fk=1"
 
 # your public address here(from metamask.)
 ADMIN_LIST=0x4910c609fBC895434a0A5E3E46B1Eb4b64Cff2B8,0x7E63d899676756711d29DD989bb9F5a868C20e1D
@@ -78,7 +74,7 @@ OPENAI_BASE_URL="https://api.openai.com/v1"
 ```
 
 ```bash
-docker run -e ADMIN_LIST={PUBLIC_ADDRESS} -p 7788:7788 annatarhe/prompt-pal:master
+docker run -e ADMIN_LIST={PUBLIC_ADDRESS} -p 7788:7788 annatarhe/prompt-pal:latest
 ```
 
 - Access PromptPal: Open your preferred web browser and visit http://localhost:7788.
