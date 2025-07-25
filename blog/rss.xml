@@ -25,6 +25,7 @@
 <li><strong>Retry mechanisms</strong> for reliable event delivery</li>
 </ul>
 <p>This opens up countless integration possibilities, from updating external dashboards to triggering automated workflows based on prompt activity.</p>
+<p><strong><a href="https://promptpal.github.io/docs/basic/webhooks">→ View the complete webhook integration guide</a></strong> to get started with setting up webhooks in your projects.</p>
 <h1>🔐 Enhanced API Security</h1>
 <p>Building on our previous API security improvements, version 1.16.3 introduces additional security enhancements that make your prompt infrastructure even more secure:</p>
 <ul>
