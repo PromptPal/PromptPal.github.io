@@ -2,11 +2,97 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://PromptPal.github.io/blog</id>
     <title>PromptPal Blog</title>
-    <updated>2024-08-04T00:00:00.000Z</updated>
+    <updated>2025-07-25T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://PromptPal.github.io/blog"/>
     <subtitle>PromptPal Blog</subtitle>
     <icon>https://PromptPal.github.io/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[PromptPal 1.16.3 - Webhooks, RBAC, and Enhanced Security]]></title>
+        <id>https://PromptPal.github.io/blog/promptPal-1-16-3</id>
+        <link href="https://PromptPal.github.io/blog/promptPal-1-16-3"/>
+        <updated>2025-07-25T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[We're excited to announce PromptPal 1.16.3, our most feature-rich release yet! This update brings powerful new capabilities that enhance integration, security, and flexibility for your AI prompt management workflows. Additionally, the frontend has been completely reimagined and rewritten with AI assistance, delivering a significantly improved user experience.]]></summary>
+        <content type="html"><![CDATA[<div class="container_pLOk"><img src="https://promptpal.github.io/assets/images/logo-6a9d31d05fe1069d8c397ca17a9a393c.png" alt="promptpal logo" class="logo_HRaL"><div><h2 class="version_xk68">PromptPal <!-- -->1.16.3</h2><ul class="features_AgtB"><li class="raycast-tag feature_cEYN featureText_il9a">Webhooks</li><li class="raycast-tag feature_cEYN featureText_il9a">RBAC</li><li class="raycast-tag feature_cEYN featureText_il9a">AI Providers</li><li class="raycast-tag feature_cEYN featureText_il9a">Enhanced Security</li><li class="raycast-tag feature_cEYN featureText_il9a">Frontend Rewrite</li></ul></div></div>
+<p>We're excited to announce PromptPal 1.16.3, our most feature-rich release yet! This update brings powerful new capabilities that enhance integration, security, and flexibility for your AI prompt management workflows. Additionally, the frontend has been completely reimagined and rewritten with AI assistance, delivering a significantly improved user experience.</p>
+<p>PromptPal now supports webhooks, enabling real-time notifications and seamless integration with your existing systems. Whether you need to trigger external processes when prompts are executed, monitor usage patterns, or integrate with CI/CD pipelines, webhooks provide the flexibility you need.</p>
+<p>Key webhook features:</p>
+<ul>
+<li><strong>Real-time notifications</strong> for prompt execution events</li>
+<li><strong>Configurable endpoints</strong> for different event types</li>
+<li><strong>Secure delivery</strong> with signature verification</li>
+<li><strong>Retry mechanisms</strong> for reliable event delivery</li>
+</ul>
+<p>This opens up countless integration possibilities, from updating external dashboards to triggering automated workflows based on prompt activity.</p>
+<h1>🔐 Enhanced API Security</h1>
+<p>Building on our previous API security improvements, version 1.16.3 introduces additional security enhancements that make your prompt infrastructure even more secure:</p>
+<ul>
+<li><strong>Enhanced token management</strong> with improved lifecycle controls</li>
+<li><strong>Request validation</strong> with comprehensive input sanitization</li>
+<li><strong>Audit logging</strong> for security monitoring and compliance</li>
+<li><strong>Rate limiting improvements</strong> for better protection against abuse</li>
+</ul>
+<p>These improvements ensure your prompts remain secure while maintaining the performance and flexibility you expect from PromptPal.</p>
+<h1>👥 RBAC Support (Experimental)</h1>
+<p>We're introducing experimental Role-Based Access Control (RBAC) to help teams manage permissions and access to prompts more effectively. This feature allows organizations to:</p>
+<ul>
+<li><strong>Define custom roles</strong> with specific permissions</li>
+<li><strong>Assign users to roles</strong> based on their responsibilities</li>
+<li><strong>Control access</strong> to different prompts and environments</li>
+<li><strong>Manage team collaboration</strong> with fine-grained permissions</li>
+</ul>
+<p><em>Note: RBAC is currently in experimental status. We're actively collecting feedback to refine this feature before the stable release.</em></p>
+<h1>🤖 AI Provider Support</h1>
+<p>PromptPal 1.16.3 expands AI provider support beyond our existing integrations, making it easier to work with different AI models and services:</p>
+<ul>
+<li><strong>Enhanced provider abstraction</strong> for seamless switching between AI services</li>
+<li><strong>Improved configuration management</strong> for multiple providers</li>
+<li><strong>Better error handling</strong> across different provider APIs</li>
+<li><strong>Performance optimizations</strong> for provider-specific features</li>
+</ul>
+<p>This enhancement ensures PromptPal remains provider-agnostic while leveraging the unique capabilities of each AI service.</p>
+<h1>🎨 Complete Frontend Rewrite</h1>
+<p>One of the most significant changes in this release is the complete rewrite of the PromptPal frontend. Since version 1.12.1, the entire user interface has been rebuilt from the ground up with AI assistance, resulting in a modern, intuitive, and powerful user experience.</p>
+<p>Key frontend improvements include:</p>
+<ul>
+<li><strong>AI-Powered Development</strong> - The entire frontend was reimagined and developed with AI assistance, ensuring modern best practices and optimal user experience patterns</li>
+<li><strong>Enhanced User Interface</strong> - A completely redesigned interface that's more intuitive and user-friendly</li>
+<li><strong>Improved Performance</strong> - Significant performance optimizations for faster loading and smoother interactions</li>
+<li><strong>Modern Architecture</strong> - Built with the latest web technologies and architectural patterns</li>
+<li><strong>Better Accessibility</strong> - Enhanced accessibility features for a more inclusive user experience</li>
+<li><strong>Responsive Design</strong> - Improved mobile and tablet experience across all devices</li>
+<li><strong>Streamlined Workflows</strong> - Redesigned user flows that make prompt management more efficient</li>
+</ul>
+<p>This comprehensive frontend overhaul represents months of development work and feedback incorporation, making PromptPal not just more powerful on the backend, but also more delightful to use on the frontend.</p>
+<h1>🚀 Additional Improvements</h1>
+<p>This release also includes numerous quality-of-life improvements:</p>
+<ul>
+<li><strong>Performance optimizations</strong> for faster prompt execution</li>
+<li><strong>UI/UX enhancements</strong> for better user experience</li>
+<li><strong>Bug fixes</strong> and stability improvements</li>
+<li><strong>Documentation updates</strong> to reflect new features</li>
+</ul>
+<h1>How to Upgrade</h1>
+<p>To use the latest version, simply run the following command to upgrade:</p>
+<div class="language-bash codeBlockContainer_nGPI theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_NZRb"><pre tabindex="0" class="prism-code language-bash codeBlock_fZOY thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_PT6t"><span class="token-line" style="color:#393A34"><span class="token plain">docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:1.16.3</span><br></span></code></pre><div class="buttonGroup_Hbbu"><button type="button" aria-label="Copy code to clipboard" title="Copy" class="clean-btn"><span class="copyButtonIcons_hf46" aria-hidden="true"><svg viewBox="0 0 24 24" class="copyButtonIcon_W07c"><path fill="currentColor" d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg><svg viewBox="0 0 24 24" class="copyButtonSuccessIcon_nSTc"><path fill="currentColor" d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"></path></svg></span></button></div></div></div>
+<p>For detailed documentation on the new features, visit our <a href="https://promptpal.github.io/" target="_blank" rel="noopener noreferrer">documentation site</a>.</p>
+<h1>What's Next?</h1>
+<p>We're continuously working to improve PromptPal based on your feedback. Upcoming features include:</p>
+<ul>
+<li><strong>Stable RBAC release</strong> with additional permission granularity</li>
+<li><strong>Advanced webhook filtering</strong> and transformation capabilities</li>
+<li><strong>Enhanced monitoring</strong> and analytics features</li>
+<li><strong>More AI provider integrations</strong></li>
+<li><strong>Continued frontend enhancements</strong> building on the rewritten foundation</li>
+</ul>
+<p>Thank you for using PromptPal! We're excited to see how these new features enhance your AI prompt management workflows. As always, your feedback helps us build better tools for the community.</p>
+<p>Stay tuned for more exciting updates coming soon!</p>]]></content>
+        <author>
+            <name>AnnatarHe</name>
+            <uri>https://github.com/AnnatarHe</uri>
+        </author>
+        <category label="release" term="release"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[PromptPal 1.12 + 1.13 - Advanced API Security and IP Tracking]]></title>
         <id>https://PromptPal.github.io/blog/promptPal-1-13</id>

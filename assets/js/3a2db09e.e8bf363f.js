@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkPromptPal_github_io=self.webpackChunkPromptPal_github_io||[]).push([[8121],{8070:e=>{e.exports=JSON.parse('{"tags":[{"label":"release","permalink":"/blog/tags/release","count":7},{"label":"introduce","permalink":"/blog/tags/introduce","count":1}]}')}}]);
