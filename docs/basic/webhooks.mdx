@@ -1,0 +1,250 @@
+---
+sidebar_position: 5
+---
+
+# Webhook Integration
+
+Learn how to set up and use PromptPal's webhook system to receive real-time notifications when your prompts are executed.
+
+:::tip Get Started Quickly
+Webhooks enable seamless integration with your existing systems, providing real-time notifications and powerful automation capabilities for your AI prompt workflows.
+:::
+
+## What are Webhooks?
+
+Webhooks allow PromptPal to send automatic notifications to your applications when specific events occur. Currently, PromptPal supports the `onPromptFinished` event, which triggers whenever a prompt execution completes (successfully or with errors).
+
+### Key Webhook Features
+
+- **Real-time notifications** for prompt execution events
+- **Configurable endpoints** for different event types
+- **Secure delivery** with proper request validation
+- **Reliable event delivery** with comprehensive logging
+
+### Use Cases
+
+This enables you to:
+- Monitor prompt execution in real-time
+- Track usage analytics and performance metrics
+- Integrate with your existing systems and dashboards
+- Build automated workflows based on prompt results
+- Trigger CI/CD pipelines or external processes
+
+## Setting Up Webhooks
+
+Webhooks are configured per project in your PromptPal dashboard. Each webhook configuration includes:
+
+- **Target URL**: The endpoint where notifications will be sent
+- **Event Type**: Currently `onPromptFinished` for prompt completion events  
+- **Status**: Enable/disable the webhook
+
+To configure a webhook:
+1. Navigate to your project settings
+2. Go to the Webhooks section
+3. Add your webhook endpoint URL
+4. Enable the webhook
+
+## Understanding Webhook Payloads
+
+When a prompt finishes executing, PromptPal sends a POST request to your webhook URL with detailed information about the execution.
+
+### Request Details
+
+- **Method**: `POST` 
+- **Content-Type**: `application/json`
+- **User-Agent**: `PromptPal@{version}`
+- **Timeout**: 10 seconds (your endpoint must respond within this time)
+
+### Payload Structure
+
+```json
+{
+  "event": "onPromptFinished",
+  "projectId": 123,
+  "promptId": 456,
+  "userId": "user-123",
+  "result": 0,
+  "timestamp": "2024-01-15T10:30:00Z",
+  "duration": 1250,
+  "tokens": {
+    "prompt": 150,
+    "completion": 300,
+    "total": 450
+  },
+  "cached": false,
+  "ip": "192.168.1.1",
+  "userAgent": "Mozilla/5.0...",
+  "providerId": 789,
+  "providerDefaultModel": "gpt-4"
+}
+```
+
+### Field Reference
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `event` | string | Always `"onPromptFinished"` |
+| `projectId` | number | ID of the project containing the prompt |
+| `promptId` | number | ID of the executed prompt |
+| `userId` | string | ID of the user who executed the prompt |
+| `result` | number | `0` for success, `1` for failure |
+| `timestamp` | string | When the prompt finished (ISO 8601 format) |
+| `duration` | number | Execution time in milliseconds |
+| `tokens.prompt` | number | Tokens in the input prompt |
+| `tokens.completion` | number | Tokens in the AI response |
+| `tokens.total` | number | Total tokens used |
+| `cached` | boolean | Whether response was cached |
+| `ip` | string | Client IP address |
+| `userAgent` | string | Client user agent |
+| `providerId` | number | AI provider ID (optional) |
+| `providerDefaultModel` | string | Provider's default model (optional) |
+
+## Implementing Webhook Endpoints
+
+Your webhook endpoint should return a 2xx HTTP status code to indicate successful receipt.
+
+### Basic Response
+
+```http
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+  "status": "received"
+}
+```
+
+### Example Implementations
+
+#### Node.js with Express
+
+```javascript
+const express = require('express');
+const app = express();
+
+app.use(express.json());
+
+app.post('/webhook/promptpal', (req, res) => {
+  const payload = req.body;
+  
+  console.log('Prompt executed:', {
+    projectId: payload.projectId,
+    promptId: payload.promptId,
+    success: payload.result === 0,
+    duration: payload.duration + 'ms',
+    totalTokens: payload.tokens.total
+  });
+  
+  // Your custom logic here
+  processWebhookData(payload);
+  
+  res.status(200).json({ status: 'received' });
+});
+
+app.listen(3000, () => {
+  console.log('Webhook server running on port 3000');
+});
+```
+
+#### Python with Flask
+
+```python
+from flask import Flask, request, jsonify
+
+app = Flask(__name__)
+
+@app.route('/webhook/promptpal', methods=['POST'])
+def handle_webhook():
+    payload = request.get_json()
+    
+    print(f"Prompt executed in project {payload['projectId']}")
+    print(f"Result: {'success' if payload['result'] == 0 else 'failure'}")
+    print(f"Duration: {payload['duration']}ms")
+    print(f"Tokens used: {payload['tokens']['total']}")
+    
+    # Your custom logic here
+    process_webhook_data(payload)
+    
+    return jsonify({"status": "received"}), 200
+
+if __name__ == '__main__':
+    app.run(port=3000)
+```
+
+## Best Practices
+
+### Security
+
+- **Use HTTPS**: Always use HTTPS endpoints in production
+- **Validate payloads**: Check that requests contain expected fields
+- **Implement rate limiting**: Protect your endpoint from abuse
+- **Log requests**: Keep logs for monitoring and debugging
+
+### Performance  
+
+- **Respond quickly**: Return 200 status immediately, process data asynchronously
+- **Handle timeouts**: Ensure your endpoint responds within 10 seconds
+- **Scale appropriately**: Design for your expected webhook volume
+
+### Error Handling
+
+PromptPal considers any 2xx status code as successful delivery. For failed deliveries:
+- The failure is logged for monitoring
+- Webhook call details are recorded
+- **No automatic retries** are performed
+
+## Common Use Cases
+
+### Analytics Dashboard
+Track prompt usage, success rates, and token consumption across your projects.
+
+### Monitoring & Alerts
+Set up notifications when prompts fail or when token usage exceeds thresholds.
+
+### Workflow Automation  
+Trigger downstream processes based on prompt completion, such as updating databases or sending notifications.
+
+### Cost Tracking
+Monitor token usage for billing and budget management.
+
+## Testing Your Webhook
+
+1. **Set up a test endpoint** that logs all incoming requests
+2. **Configure the webhook URL** in your PromptPal project settings  
+3. **Execute a test prompt** in your project
+4. **Verify the webhook** is received at your endpoint
+
+You can use tools like [ngrok](https://ngrok.com/) to create a public tunnel to your local development server for testing.
+
+## Troubleshooting
+
+### Webhook Not Received
+
+- Verify the webhook is enabled in project settings
+- Check that your endpoint URL is publicly accessible
+- Ensure your endpoint responds within 10 seconds
+- Test your endpoint URL directly
+
+### Timeout Issues
+
+- Process webhook data asynchronously  
+- Return a 200 response immediately
+- Optimize your webhook processing code
+- Consider queuing heavy processing tasks
+
+### SSL/HTTPS Errors
+
+- Verify your SSL certificate is valid
+- Use a trusted certificate authority
+- Test your endpoint with SSL verification tools
+
+## Getting Help
+
+If you encounter issues with webhook integration:
+
+1. Check your endpoint logs for incoming requests
+2. Review PromptPal's webhook delivery logs  
+3. Verify network connectivity and SSL certificates
+4. Contact PromptPal support with specific error details
+
+Webhook logs in PromptPal include request/response details, timing information, and error messages to help diagnose delivery issues.
