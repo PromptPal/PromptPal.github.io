@@ -1,0 +1,89 @@
+---
+slug: promptPal-1-16-3
+title: PromptPal 1.16.3 - Webhooks, RBAC, and Enhanced Security
+authors: [annatarhe]
+tags: [release]
+---
+
+import ReleaseHero from "@site/src/components/ReleaseHero";
+
+<ReleaseHero version="1.16.3" features={["Webhooks", "RBAC", "AI Providers", "Enhanced Security"]} />
+
+We're excited to announce PromptPal 1.16.3, our most feature-rich release yet! This update brings powerful new capabilities that enhance integration, security, and flexibility for your AI prompt management workflows.
+
+# 🔗 Webhook Support
+
+PromptPal now supports webhooks, enabling real-time notifications and seamless integration with your existing systems. Whether you need to trigger external processes when prompts are executed, monitor usage patterns, or integrate with CI/CD pipelines, webhooks provide the flexibility you need.
+
+Key webhook features:
+- **Real-time notifications** for prompt execution events
+- **Configurable endpoints** for different event types
+- **Secure delivery** with signature verification
+- **Retry mechanisms** for reliable event delivery
+
+This opens up countless integration possibilities, from updating external dashboards to triggering automated workflows based on prompt activity.
+
+# 🔐 Enhanced API Security
+
+Building on our previous API security improvements, version 1.16.3 introduces additional security enhancements that make your prompt infrastructure even more secure:
+
+- **Enhanced token management** with improved lifecycle controls
+- **Request validation** with comprehensive input sanitization
+- **Audit logging** for security monitoring and compliance
+- **Rate limiting improvements** for better protection against abuse
+
+These improvements ensure your prompts remain secure while maintaining the performance and flexibility you expect from PromptPal.
+
+# 👥 RBAC Support (Experimental)
+
+We're introducing experimental Role-Based Access Control (RBAC) to help teams manage permissions and access to prompts more effectively. This feature allows organizations to:
+
+- **Define custom roles** with specific permissions
+- **Assign users to roles** based on their responsibilities  
+- **Control access** to different prompts and environments
+- **Manage team collaboration** with fine-grained permissions
+
+*Note: RBAC is currently in experimental status. We're actively collecting feedback to refine this feature before the stable release.*
+
+# 🤖 AI Provider Support
+
+PromptPal 1.16.3 expands AI provider support beyond our existing integrations, making it easier to work with different AI models and services:
+
+- **Enhanced provider abstraction** for seamless switching between AI services
+- **Improved configuration management** for multiple providers
+- **Better error handling** across different provider APIs
+- **Performance optimizations** for provider-specific features
+
+This enhancement ensures PromptPal remains provider-agnostic while leveraging the unique capabilities of each AI service.
+
+# 🚀 Additional Improvements
+
+This release also includes numerous quality-of-life improvements:
+
+- **Performance optimizations** for faster prompt execution
+- **UI/UX enhancements** for better user experience
+- **Bug fixes** and stability improvements
+- **Documentation updates** to reflect new features
+
+# How to Upgrade
+
+To use the latest version, simply run the following command to upgrade:
+
+```bash
+docker run -v $(pwd)/.env:/usr/app/.env -p 7788:7788 annatarhe/prompt-pal:1.16.3
+```
+
+For detailed documentation on the new features, visit our [documentation site](https://promptpal.github.io/).
+
+# What's Next?
+
+We're continuously working to improve PromptPal based on your feedback. Upcoming features include:
+
+- **Stable RBAC release** with additional permission granularity
+- **Advanced webhook filtering** and transformation capabilities
+- **Enhanced monitoring** and analytics features
+- **More AI provider integrations**
+
+Thank you for using PromptPal! We're excited to see how these new features enhance your AI prompt management workflows. As always, your feedback helps us build better tools for the community.
+
+Stay tuned for more exciting updates coming soon!
